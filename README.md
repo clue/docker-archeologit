@@ -23,11 +23,26 @@ red if it hasn't been modified for a long time.
 ## Usage
 
 This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/clue/archeologit/),
-so using it is as simple as running:
+so there's no setup required.
+Using this image for the first time will download it automatically.
+Further runs will be immediate, as the image will be cached locally.
+
+The recommended way to run this container looks like this:
 
 ```bash
-$ docker run clue/archeologit
+$ docker run -it --rm -v $HOME/workspace/MyProject:/data:ro -p 8001:8000 clue/archeologit
 ```
 
-Running this command for the first time will download the image automatically.
-Further runs will be immediate, as the image will be cached locally.
+You can now point your webbrowser to this URL:
+
+```
+http://localhost:8001
+```
+
+While this might seem complicated at first, it's a rather common setup following docker's conventions:
+
+* `-it` will run an interactive session that can be terminated with CTRL+C
+* `--rm` will run a temporary session that will make sure to remove the container on exit
+* `-v {AnyGitRepo}:/data:ro` will mount your git repository as a read-only volume into the container for analyzing its contents
+* `-p {OutsidePort}:8000` will bind the webserver to the given outside port
+* `clue/archeologit` the name of this docker image
