@@ -1,6 +1,6 @@
 # docker-archeologit
 
-[ArcheoloGit](https://github.com/marmelab/ArcheoloGit) is data visualization tool
+[ArcheoloGit](https://github.com/marmelab/ArcheoloGit) is a data visualization tool
 to show the age and dev activity for git repositories.
 This is a [docker](https://www.docker.io) image that eases setup.
 
@@ -24,7 +24,7 @@ red if it hasn't been modified for a long time.
 
 This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/clue/archeologit/),
 so there's no setup required.
-Using this image for the first time will download it automatically.
+Using this image for the first time will start a download.
 Further runs will be immediate, as the image will be cached locally.
 
 The recommended way to run this container looks like this:
