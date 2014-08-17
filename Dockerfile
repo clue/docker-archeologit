@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 MAINTAINER Christian Lück <christian@lueck.tv>
 
 # add archeologit user account
