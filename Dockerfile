@@ -11,7 +11,7 @@ RUN echo "Install ArcheoloGit" >&2 && \
 	\
 	echo "[1/7] Install system dependencies" >&2 && \
 	DEBIAN_FRONTEND=noninteractive apt-get update && \
-	apt-get install -y git python2.7 && \
+	apt-get install -y git python3 && \
 	apt-get install -y unzip npm && \
 	\
 	echo "[2/7] Unpack zipball" >&2 && \
@@ -50,4 +50,4 @@ VOLUME /data
 EXPOSE 8000
 
 # always analyze source volume, then start a lightweight webserver
-CMD ./run.sh /data && python -m SimpleHTTPServer 8000
+CMD ./run.sh /data && python3 -m http.server 8000
