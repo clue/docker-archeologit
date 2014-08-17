@@ -11,8 +11,8 @@ RUN echo "Install ArcheoloGit" >&2 && \
 	\
 	echo "[1/7] Install system dependencies" >&2 && \
 	DEBIAN_FRONTEND=noninteractive apt-get update && \
-	apt-get install -y git python3 && \
-	apt-get install -y unzip npm && \
+	apt-get install -y --no-install-recommends git python3 && \
+	apt-get install -y --no-install-recommends unzip npm && \
 	\
 	echo "[2/7] Unpack zipball" >&2 && \
 	unzip /master.zip -d /home/archeologit && \
@@ -34,7 +34,7 @@ RUN echo "Install ArcheoloGit" >&2 && \
 	rm -rf /.npm/ && \
 	\
 	echo "[7/7] Uninstall system dependencies (leave only git/python)" >&2 && \
-	apt-get remove -y unzip npm && \
+	apt-get purge -y unzip npm && \
 	apt-get autoremove -y && \
 	apt-get clean
 
